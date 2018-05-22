@@ -12,6 +12,7 @@ class TicTacToe
       @board[index] = player
       return true
     end
+    puts "Invalid move"
     return false
   end
 
@@ -22,7 +23,7 @@ class TicTacToe
   def is_even(num)
     num % 2 == 0
   end
-  
+
   def current_player
     is_even(@board.reject{|space| space != "X" || space != "O"}.length) ? player_x : player_o
   end
@@ -32,12 +33,12 @@ class TicTacToe
     index = input_to_index(gets.strip)
     move(index, current_player)
   end
-  
-  def play  
+
+  def play
     until over?
       turn
     end
-    puts won? ? "Congratulations, #{winner}" : "Cat's Game!"    
+    puts won? ? "Congratulations, #{winner}" : "Cat's Game!"
   end
 
 
