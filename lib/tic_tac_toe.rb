@@ -44,7 +44,7 @@ class TicTacToe
   end
 
   def current_player
-    is_even(@board.reject{|space| space != "X" || space != "O"}.length) ? player_x : player_o
+    is_even(@board.reject{|space| space != "X" || space != "O"}.length) ? @player_x : @player_o
   end
 
   def turn
@@ -73,9 +73,9 @@ class TicTacToe
     @WIN_COMBINATIONS.each do |combination|
       c = combination.to_set
       if c.subset?(x_moves)
-        return player_x
+        return @player_x
       elsif c.subset?(o_moves)
-        return player_o
+        return @player_o
       end
     end
     return nil
