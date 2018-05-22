@@ -43,7 +43,7 @@ class TicTacToe
   def valid_move?(index)
     index >=0 && index <=8 && !position_taken?(index)
   end
-  
+
   def input_to_index(input)
     input.to_i - 1
   end
@@ -53,7 +53,7 @@ class TicTacToe
   end
 
   def current_player
-    is_even(@board.reject{|space| space != "X" || space != "O"}.length) ? @player_x : @player_o
+    is_even(@board.reject{|space| space != "X" && space != "O"}.length) ? @player_x : @player_o
   end
 
   def turn
