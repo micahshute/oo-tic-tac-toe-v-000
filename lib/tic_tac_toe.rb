@@ -68,14 +68,14 @@ class TicTacToe
     until over?
       turn
     end
-    puts won? ? "Congratulations, #{winner(false)}!" : "Cat's Game!"
+    puts won? ? "Congratulations, #{winner}!" : "Cat's Game!"
   end
 
   def over?
     full? || won?
   end
 
-  def winner(want_combo = true)
+  def won?(want_combo = true)
     x_moves = Set.new
     o_moves = Set.new
 
@@ -102,8 +102,8 @@ class TicTacToe
     @board.select{ |i| i == "X" || i == "O" }.length == 9
   end
 
-  def won?
-    winner
+  def winner
+    won(false)
   end
 
   def draw?
