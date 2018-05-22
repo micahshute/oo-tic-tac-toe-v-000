@@ -2,6 +2,13 @@ require 'set'
 
 class TicTacToe
 
+  def display_board
+    puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
+    puts "-----------"
+    puts " #{@board[3]} | #{@board[4]} | #{@board[5]} "
+    puts "-----------"
+    puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
+  end
 
   initialize
     @board = Array.new(9, " ")
@@ -41,12 +48,14 @@ class TicTacToe
   end
 
   def turn
+    display_board
     puts "Enter a number bewteen 1-9:"
     index = input_to_index(gets.strip)
     move(index, current_player)
   end
 
   def play
+    display_board
     until over?
       turn
     end
@@ -60,7 +69,7 @@ class TicTacToe
   def winner
     x_moves = @board.select{ |i| i == "X" }.to_set
     o_moves = @board.select{ |i| i == "O" }.to_set
-    
+
     @WIN_COMBINATIONS.each do |combination|
       c = combination.to_set
       if c.is_subset(x_moves)
@@ -80,6 +89,6 @@ class TicTacToe
     winner != nil
   end
 
-  
+
 
 end
