@@ -75,7 +75,7 @@ class TicTacToe
     full? || won?
   end
 
-  def winner
+  def winner(want_combo = false)
     x_moves = Set.new
     o_moves = Set.new
 
@@ -90,9 +90,9 @@ class TicTacToe
     @WIN_COMBINATIONS.each do |combination|
       c = combination.to_set
       if c.subset?(x_moves)
-        return @player_x
+        return want_combo ? combination : @player_x
       elsif c.subset?(o_moves)
-        return @player_o
+        return want_combo ? combination : @player_o
       end
     end
     return nil
@@ -103,7 +103,11 @@ class TicTacToe
   end
 
   def won?
-    winner != nil
+    return !!winner? : winner(true) : false
+  end
+
+  def draw?
+    full? && !won?
   end
 
 end
