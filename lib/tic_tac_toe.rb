@@ -10,7 +10,7 @@ class TicTacToe
     puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
   end
 
-  initialize
+  def initialize
     @board = Array.new(9, " ")
     @player_x = "X"
     @player_o = "O"
