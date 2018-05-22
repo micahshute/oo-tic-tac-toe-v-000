@@ -1,4 +1,4 @@
-
+require 'set'
 
 class TicTacToe
 
