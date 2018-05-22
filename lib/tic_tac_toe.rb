@@ -12,7 +12,7 @@ class TicTacToe
       @board[index] = player
       return true
     end
-    puts "Invalid move"
+    puts "Invalid move."
     return false
   end
 
