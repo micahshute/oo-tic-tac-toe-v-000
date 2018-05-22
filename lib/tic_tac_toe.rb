@@ -76,8 +76,16 @@ class TicTacToe
   end
 
   def winner
-    x_moves = @board.select{ |i| i == "X" }.to_set
-    o_moves = @board.select{ |i| i == "O" }.to_set
+    x_moves = Set.new
+    o_moves = Set.new
+
+    @board.each.with_index do |move, index|
+      if move == "X"
+        x_moves.add(index)
+      elsif move == "O"
+        o_moves.add(index)
+      end
+    end
 
     @WIN_COMBINATIONS.each do |combination|
       c = combination.to_set
