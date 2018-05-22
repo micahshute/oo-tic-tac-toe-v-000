@@ -35,6 +35,15 @@ class TicTacToe
     return false
   end
 
+
+  def position_taken?(index)
+    @board[index] != "X" && @board[index] != "O"
+  end
+
+  def valid_move?(index)
+    index >=0 && index <=8 && !position_taken?(index)
+  end
+  
   def input_to_index(input)
     input.to_i - 1
   end
