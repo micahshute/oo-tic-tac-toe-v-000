@@ -48,10 +48,10 @@ class TicTacToe
   end
 
   def turn
-    display_board
     puts "Enter a number bewteen 1-9:"
     index = input_to_index(gets.strip)
     move(index, current_player)
+    display_board
   end
 
   def play
