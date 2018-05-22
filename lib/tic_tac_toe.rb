@@ -89,6 +89,4 @@ class TicTacToe
     winner != nil
   end
 
-
-
 end
