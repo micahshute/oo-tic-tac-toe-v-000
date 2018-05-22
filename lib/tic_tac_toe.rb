@@ -72,9 +72,9 @@ class TicTacToe
 
     @WIN_COMBINATIONS.each do |combination|
       c = combination.to_set
-      if c.is_subset(x_moves)
+      if c.subset?(x_moves)
         return player_x
-      elsif c.is_subset(o_moves)
+      elsif c.subset?(o_moves)
         return player_o
       end
     end
