@@ -89,9 +89,6 @@ class TicTacToe
 
     @WIN_COMBINATIONS.each do |combination|
       c = combination.to_set
-      puts c.inspect
-      puts x_moves.inspect
-      puts o_moves.inspect
       if c.subset?(x_moves)
         return @player_x
       elsif c.subset?(o_moves)
